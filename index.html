@@ -620,7 +620,8 @@ font-size: 23px;
 
 
 #save-png {
-    position:fixed;
+    display: none;
+    position: fixed;
     right:20px;
     bottom:20px;
     z-index:9999;
@@ -1298,6 +1299,18 @@ canvas.toBlob(function(blob) {
 
     button.style.display = '';
 }
+<script>
+document.addEventListener('keydown', function(event) {
+    if (event.ctrlKey && event.shiftKey && event.key.toLowerCase() === 'p') {
+        const button = document.getElementById('save-png');
+
+        if (button.style.display === 'none' || button.style.display === '') {
+            button.style.display = 'block';
+        } else {
+            button.style.display = 'none';
+        }
+    }
+});
 </script>
 
 
